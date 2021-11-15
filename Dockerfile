@@ -10,6 +10,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./app /app
 
-RUN adduser -D user
+RUN useradd --create-home userapi   
 
-USER user
+USER userapi
