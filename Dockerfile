@@ -9,7 +9,7 @@ COPY Pipfile .
 COPY Pipfile.lock .
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy --system
 COPY . /django_base/
-RUN sudo chown -R user:user .
+RUN chown -R user:user .
 RUN chmod +x ./   
 
 USER user
