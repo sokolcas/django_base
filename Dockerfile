@@ -1,15 +1,19 @@
-FROM python:3.10
+FROM python:3.10-alpine
 LABEL DANIIL SOKOLOVSKIY
 
-RUN useradd --create-home user 
+
 WORKDIR /django_base
 
 RUN pip install -U pipenv
 COPY Pipfile .     
 COPY Pipfile.lock .
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy --system
-COPY . /django_base/
-RUN chown -R user:user .
-RUN chmod +x ./   
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
+
+RUN adduser -D user
+
+USER user
 
 USER user
