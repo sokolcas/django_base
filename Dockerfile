@@ -12,6 +12,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app
 EXPOSE 5000 
-RUN adduser -u 1000 -G user -s /bin/sh -D node
+RUN adduser -u 1000 -s /bin/sh -D user
 RUN chown -R user:user ./
 USER user
