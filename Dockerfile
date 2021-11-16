@@ -10,6 +10,6 @@ RUN useradd --create-home userapi
 RUN mkdir /app
 WORKDIR /app
 COPY ./ . 
-RUN chown R userapi:userapi ./    
+RUN chown -R userapi:userapi ./    
 
 USER userapi
