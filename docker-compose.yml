@@ -10,4 +10,6 @@ services:
       - ./app:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
-    user: user
+    args:
+      UID: 1000
+      GID: 1000
