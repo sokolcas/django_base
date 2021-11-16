@@ -6,10 +6,11 @@ COPY Pipfile .
 COPY Pipfile.lock .
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy --system
 
-RUN useradd --create-home userapi  
+RUN adduser -D user  
 RUN mkdir /app
 WORKDIR /app
 COPY ./app /app
-RUN chown -R userapi:userapi ./    
+RUN chown -R user:user /app/
+RUN chmod +x /app    
 
 USER userapi
