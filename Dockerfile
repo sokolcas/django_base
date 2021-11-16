@@ -11,5 +11,6 @@ WORKDIR /app
 COPY ./app /app
 
 RUN useradd --create-home userapi   
-
+RUN chown userapi:userapi -R /app/
+RUN chmod +x /app
 USER userapi
